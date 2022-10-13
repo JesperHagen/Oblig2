@@ -21,7 +21,7 @@ public interface Tree<E> extends Collection {
 
     }
 
-    public default preorder() {
+    public default void preorder() {
 
     }
 
@@ -111,6 +111,19 @@ public interface Tree<E> extends Collection {
 
     @Override
     public default <T> T[] toArray(T[] array) {
+        if (array == null)
+            throw new NullPointerException("the array is null");
 
+        if (array.length < size())
+            array = (T[])java.lang.reflect.Array.newInstance(array.getClass().getComponentType(), size());
+
+        int indexCount = 0;
+        Iterator<E> iterator = iterator();
+
+        while(iterator.hasNext()) {
+            array[indexCount] = (T) iterator.next();
+            indexCount++;
+        }
+        return array;
     }
 }
