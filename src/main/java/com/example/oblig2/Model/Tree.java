@@ -3,7 +3,7 @@ package com.example.oblig2.Model;
 import java.util.Collection;
 import java.util.Iterator;
 
-public interface Tree<E> extends Collection {
+public interface Tree<E> extends Collection<E> {
 
     public boolean search(E e);
 
@@ -11,7 +11,7 @@ public interface Tree<E> extends Collection {
 
     public boolean delete(E e);
 
-    public int getsize();
+    public int getSize();
 
     public default void inorder() {
 
@@ -46,7 +46,7 @@ public interface Tree<E> extends Collection {
     }
 
     public default int size() {
-        return getsize();
+        return getSize();
     }
 
     @Override
