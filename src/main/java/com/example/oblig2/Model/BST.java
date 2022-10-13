@@ -117,9 +117,9 @@ public class BST<E> implements Tree<E> {
 
     // Inner class tre node
     public static class TreeNode<E> {
-        protected E element;
-        protected TreeNode<E> left;
-        protected TreeNode<E> right;
+        public E element;
+        public TreeNode<E> left;
+        public TreeNode<E> right;
 
         public TreeNode(E e) {
             element = e;
