@@ -33,75 +33,71 @@ public class AVLTree<E> extends BST<E> {
         if (node.left == null && node.right == null)
             node.height = 0;
         else if (node.left == null)
-            node.height = 1 + ((AVLTreeNode<E>)(node.right)).height;
+            node.height = 1 + ((AVLTreeNode<E>) (node.right)).height;
         else if (node.right == null)
-            node.height = 1 + ((AVLTreeNode<E>)(node.left)).height;
+            node.height = 1 + ((AVLTreeNode<E>) (node.left)).height;
         else
             node.height = 1 +
-                    Math.max(((AVLTreeNode<E>)(node.right)).height,
-                            ((AVLTreeNode<E>)(node.left)).height);
+                    Math.max(((AVLTreeNode<E>) (node.right)).height,
+                            ((AVLTreeNode<E>) (node.left)).height);
 
     }
 
     private void balancePath(E e) {
         java.util.ArrayList<TreeNode<E>> path = path(e);
         for (int i = path.size() - 1; i >= 0; i--) {
-            AVLTreeNode<E> A = (AVLTreeNode<E>)(path.get(i));
+            AVLTreeNode<E> A = (AVLTreeNode<E>) (path.get(i));
             updateHeight(A);
             AVLTreeNode<E> parentOfA = (A == root) ? null :
-                    (AVLTreeNode<E>)(path.get(i-1));
+                    (AVLTreeNode<E>) (path.get(i - 1));
 
             switch (balanceFactor(A)) {
-                case - 2:
-                    if (balanceFactor ((AVLTreeNode<E>)A.left) <= 0) {
+                case -2:
+                    if (balanceFactor((AVLTreeNode<E>) A.left) <= 0) {
                         balanceLL(A, parentOfA);
-                    }
-                    else {
+                    } else {
                         balanceLR(A, parentOfA);
                     }
                     break;
                 case +2:
-                    if(balanceFactor((AVLTreeNode<E>)A.right) >= 0) {
+                    if (balanceFactor((AVLTreeNode<E>) A.right) >= 0) {
                         balanceRR(A, parentOfA);
-                    }
-                    else  {
+                    } else {
                         balanceRL(A, parentOfA);
                     }
             }
 
+        }
+
     }
 
-}
-
-private int balanceFactor (AVLTree<E> node) {
-    if (node.right == null)
-        return -node.height;
-    else if (node.left == null)
-        return +node.height;
-    else
-        return ((AVLTree<E>)node.right).height -
-                ((AVLTree<E>)node.left)height;
-}
+    private int balanceFactor(AVLTreeNode<E> node) {
+        if (node.right == null)
+            return -node.height;
+        else if (node.left == null)
+            return +node.height;
+        else
+            return ((AVLTreeNode<E>) node.right).height -
+                    ((AVLTreeNode<E>) node.left).height;
+    }
 
     private void balanceLL(TreeNode<E> A, TreeNode<E> parentOfA) {
         TreeNode<E> B = A.left; // A is left-heavy and B is left-heavy
 
         if (A == root) {
             root = B;
-        }
-        else {
+        } else {
             if (parentOfA.left == A) {
                 parentOfA.left = B;
-            }
-            else {
+            } else {
                 parentOfA.right = B;
             }
         }
 
         A.left = B.right;
         B.right = A;
-        updateHeight((AVLTreeNode<E>)A);
-        updateHeight((AVLTreeNode<E>)B);
+        updateHeight((AVLTreeNode<E>) A);
+        updateHeight((AVLTreeNode<E>) B);
     }
 
     private void balanceLR(TreeNode<E> A, TreeNode<E> parentOfA) {
@@ -110,12 +106,10 @@ private int balanceFactor (AVLTree<E> node) {
 
         if (A == root) {
             root = C;
-        }
-        else {
+        } else {
             if (parentOfA.left == A) {
                 parentOfA.left = C;
-            }
-            else {
+            } else {
                 parentOfA.right = C;
             }
         }
@@ -126,9 +120,9 @@ private int balanceFactor (AVLTree<E> node) {
         C.right = A;
 
         // Adjust heights
-        updateHeight((AVLTreeNode<E>)A);
-        updateHeight((AVLTreeNode<E>)B);
-        updateHeight((AVLTreeNode<E>)C);
+        updateHeight((AVLTreeNode<E>) A);
+        updateHeight((AVLTreeNode<E>) B);
+        updateHeight((AVLTreeNode<E>) C);
     }
 
     private void balanceRR(TreeNode<E> A, TreeNode<E> parentOfA) {
@@ -136,20 +130,18 @@ private int balanceFactor (AVLTree<E> node) {
 
         if (A == root) {
             root = B;
-        }
-        else {
+        } else {
             if (parentOfA.left == A) {
                 parentOfA.left = B;
-            }
-            else {
+            } else {
                 parentOfA.right = B;
             }
         }
 
         A.right = B.left;
         B.left = A;
-        updateHeight((AVLTreeNode<E>)A);
-        updateHeight((AVLTreeNode<E>)B);
+        updateHeight((AVLTreeNode<E>) A);
+        updateHeight((AVLTreeNode<E>) B);
     }
 
     private void balanceRL(TreeNode<E> A, TreeNode<E> parentOfA) {
@@ -158,12 +150,10 @@ private int balanceFactor (AVLTree<E> node) {
 
         if (A == root) {
             root = C;
-        }
-        else {
+        } else {
             if (parentOfA.left == A) {
                 parentOfA.left = C;
-            }
-            else {
+            } else {
                 parentOfA.right = C;
             }
         }
@@ -174,12 +164,13 @@ private int balanceFactor (AVLTree<E> node) {
         C.right = B;
 
         // Adjust heights
-        updateHeight((AVLTreeNode<E>)A);
-        updateHeight((AVLTreeNode<E>)B);
-        updateHeight((AVLTreeNode<E>)C);
+        updateHeight((AVLTreeNode<E>) A);
+        updateHeight((AVLTreeNode<E>) B);
+        updateHeight((AVLTreeNode<E>) C);
     }
 
-    @Override /** Delete an element from the binary tree.
+    @Override
+    /** Delete an element from the binary tree.
      * Return true if the element is deleted successfully
      * Return false if the element is not in the tree */
     public boolean delete(E element) {
@@ -193,12 +184,10 @@ private int balanceFactor (AVLTree<E> node) {
             if (c.compare(element, current.element) < 0) {
                 parent = current;
                 current = current.left;
-            }
-            else if (c.compare(element, current.element) > 0) {
+            } else if (c.compare(element, current.element) > 0) {
                 parent = current;
                 current = current.right;
-            }
-            else
+            } else
                 break; // Element is in the tree pointed by current
         }
 
@@ -210,8 +199,7 @@ private int balanceFactor (AVLTree<E> node) {
             // Connect the parent with the right child of the current node
             if (parent == null) {
                 root = current.right;
-            }
-            else {
+            } else {
                 if (c.compare(element, parent.element) < 0)
                     parent.left = current.right;
                 else
@@ -220,8 +208,7 @@ private int balanceFactor (AVLTree<E> node) {
                 // Balance the tree if necessary
                 balancePath(parent.element);
             }
-        }
-        else {
+        } else {
             // Case 2: The current node has a left child
             // Locate the rightmost node in the left subtree of
             // the current node and also its parent
@@ -250,13 +237,14 @@ private int balanceFactor (AVLTree<E> node) {
         size--;
         return true; // Element inserted
     }
-}
 
-protected static class AVLTreeNode<E> extends BST.TreeNode<E> {
-    protected int height = 0; // New data field
 
-    public AVLTreeNode(E o) {
-        super(o);
+    protected static class AVLTreeNode<E> extends BST.TreeNode<E> {
+        protected int height = 0; // New data field
+
+        public AVLTreeNode(E o) {
+            super(o);
+        }
     }
 }
 
