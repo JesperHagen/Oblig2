@@ -37,7 +37,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/javafx-sdk-19/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jespe/OneDrive/IdeaProjects/javafx-sdk-19&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -45,11 +45,9 @@
 }</component>
   <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Java/jdk-19" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.example.oblig2.App" />
-      <module name="Oblig2" />
-      <option name="VM_PARAMETERS" value=" --module-path &quot;C:\Program Files\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.base,javafx.fxml,javafx.graphics,javafx.media,javafx.web --add-opens=javafx.graphics/javafx.scene=ALL-UNNAMED --add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
+      <module name="oblig2" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\jespe\Downloads\openjfx-19_windows-x64_bin-sdk\javafx-sdk-19\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.oblig2.*" />
@@ -94,7 +92,11 @@
       <updated>1665652170591</updated>
       <workItem from="1665652173975" duration="3382000" />
       <workItem from="1665655651656" duration="7206000" />
-      <workItem from="1666174574808" duration="2053000" />
+      <workItem from="1666174574808" duration="2303000" />
+      <workItem from="1666178252360" duration="154000" />
+      <workItem from="1666178558478" duration="1572000" />
+      <workItem from="1666340046073" duration="1059000" />
+      <workItem from="1666769141013" duration="839000" />
     </task>
     <servers />
   </component>
