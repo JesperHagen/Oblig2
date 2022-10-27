@@ -1,4 +1,4 @@
-package com.example.oblig2.Model.Controller;
+package com.example.oblig2.Controller;
 
 import java.util.Random;
 
