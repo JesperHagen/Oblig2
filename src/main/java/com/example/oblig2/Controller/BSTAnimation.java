@@ -31,6 +31,7 @@ public class BSTAnimation extends Application {
         pane.setCenter(avlView);
 
         TextField tfKey = new TextField();
+
         tfKey.setPrefColumnCount(3);
         tfKey.setAlignment(Pos.BASELINE_RIGHT);
         Button btInsert = new Button("Sett inn");
@@ -44,13 +45,14 @@ public class BSTAnimation extends Application {
         Button btClear = new Button("Slett treet");
 
         // change between integer and string
-        Button btChangeInputType = new Button("Bytt input type (String)");
+        Button btChangeInputType = new Button("Velg input type");
 
         HBox hBox = new HBox(5);
         HBox topHbox = new HBox(5);
 
         topHbox.getChildren().addAll(btChangeInputType);
-        hBox.getChildren().addAll(new Label("Enter a key: "), tfKey, btInsert, btDelete, btSearch, btRandom, btLowest,btClear);
+        hBox.getChildren().addAll(new Label("Enter a key: "), tfKey, btInsert, btDelete, btSearch, btRandom, btLowest,
+                btClear);
 
         hBox.setAlignment(Pos.CENTER);
         topHbox.setAlignment(Pos.CENTER);
@@ -58,23 +60,22 @@ public class BSTAnimation extends Application {
         pane.setBottom(hBox);
         pane.setTop(topHbox);
 
-
         btChangeInputType.setOnAction(e -> {
             if (inputType == 0) {
                 inputType = 1;
                 btChangeInputType.setText("Bytt input type (String)");
                 btClear.fire();
-                System.out.print("\nInput type changed to String");
+                System.out.print("\nInput type changed to String \n" + inputType);
             } else {
                 inputType = 0;
                 btChangeInputType.setText("Bytt input type (Integer)");
                 btClear.fire();
-                System.out.println("\nInput type changed to Integer");
+                System.out.println("\nInput type changed to Integer \n" + inputType);
             }
         });
 
         btInsert.setOnAction(e -> {
-            if (tfKey.getText().matches("[0-9]") && inputType == 0) {
+            if (inputType == 0) {
                 int key = Integer.parseInt(tfKey.getText());
                 if (avlTree.search(key)) { // key is in the avlTree already
                     avlView.displayTree();
@@ -84,7 +85,8 @@ public class BSTAnimation extends Application {
                     avlView.displayTree();
                     avlView.setStatus(key + " er satt inn i treet");
                 }
-            } else {
+            }
+            if (inputType == 1) {
                 String key = tfKey.getText();
                 if (avlTree.search(key)) { // key is in the avlTree already
                     avlView.displayTree();
@@ -141,6 +143,7 @@ public class BSTAnimation extends Application {
             }
         });
         btRandom.setOnAction(e -> {
+            // Legg til 10 tilfeldige verdier (Integer)
             if (inputType == 0) {
                 for (int i = 0; i < 10; i++) {
                     int key = (int) (Math.random() * 100);
@@ -154,6 +157,7 @@ public class BSTAnimation extends Application {
                     }
                 }
             } else {
+                // Legg til 10 tilfeldige verdier (String)
                 for (int i = 0; i < 10; i++) {
                     // generate random char string
                     char[] chars = "abcdefghijklmnopqrstuvwxyzæøå".toCharArray();

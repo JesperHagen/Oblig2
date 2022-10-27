@@ -12,7 +12,7 @@ public class BTView<E> extends Pane {
     private BST<E> tree = new BST<>();
 
     private double radius = 15; // tre node radius
-    private double vGap = 50; // vertikal avstand mellom noder
+    private double vGap = 60; // vertikal avstand mellom noder
 
     public BTView(BST<E> tree) {
         this.tree = tree;
