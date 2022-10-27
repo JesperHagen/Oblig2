@@ -8,12 +8,13 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
-public class BTView extends Pane {
-    private BST<Integer> tree = new BST<>();
+public class BTView<E> extends Pane {
+    private BST<E> tree = new BST<>();
+
     private double radius = 15; // tre node radius
     private double vGap = 50; // vertikal avstand mellom noder
 
-    public BTView(BST<Integer> tree) {
+    public BTView(BST<E> tree) {
         this.tree = tree;
         setStatus("Tomt tre");
     }
@@ -31,7 +32,7 @@ public class BTView extends Pane {
         }
     }
 
-    private void displayTree(BST.TreeNode<Integer> root, double x, double y,
+    private void displayTree(BST.TreeNode<E> root, double x, double y,
             double hGap) {
         if (root.left != null) {
             // tegn en linje til venstre barn

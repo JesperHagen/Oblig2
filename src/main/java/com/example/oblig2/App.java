@@ -1,5 +1,6 @@
 package com.example.oblig2;
 import com.example.oblig2.Model.BST;
+import com.example.oblig2.Model.Controller.BSTAnimation;
 
 
 // starter GUI i View
