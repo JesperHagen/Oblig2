@@ -23,6 +23,9 @@ public class BTView<E> extends Pane {
         getChildren().add(new Text(20, 20, msg));
     }
 
+    /**
+     * Viser treet med en rekursiv metode
+     */
     public void displayTree() {
         this.getChildren().clear(); // Tømmer pane
         if (tree.getRoot() != null) {
@@ -31,6 +34,11 @@ public class BTView<E> extends Pane {
                     getWidth() / 4);
         }
     }
+
+    /**
+     * Viser et subtre, gitt rot, x-koordinat, y-koordinat og horisontal avstand
+     *
+     */
 
     private void displayTree(BST.TreeNode<E> root, double x, double y,
             double hGap) {

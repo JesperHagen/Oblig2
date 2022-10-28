@@ -21,6 +21,11 @@ public class BSTAnimation extends Application {
 
     int inputType = 2;
 
+    /**
+     * Tegner GUI, med knapper, tekstfelt og view
+     *
+     * @param primaryStage
+     */
     @Override
     public void start(Stage primaryStage) {
         BorderPane pane = new BorderPane();

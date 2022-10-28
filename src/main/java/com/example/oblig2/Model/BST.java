@@ -72,9 +72,9 @@ public class BST<E> implements Tree<E> {
 
     // Inorder fra root
     @Override
-        public void inorder(){
-            inorder(root);
-        }
+    public void inorder() {
+        inorder(root);
+    }
 
     // Inorder fra en subtre (rekursiv hjelpemetode)
     protected void inorder(TreeNode<E> root) {
@@ -87,9 +87,9 @@ public class BST<E> implements Tree<E> {
 
     // Postorder fra root
     @Override
-        public void postorder(){
-            postorder(root);
-        }
+    public void postorder() {
+        postorder(root);
+    }
 
     // Postorder fra en subtre (rekursiv hjelpemetode)
     protected void postorder(TreeNode<E> root) {
@@ -102,9 +102,9 @@ public class BST<E> implements Tree<E> {
 
     // Preorder fra root
     @Override
-        public void preorder(){
-            preorder(root);
-        }
+    public void preorder() {
+        preorder(root);
+    }
 
     // Preorder fra en subtre (rekursiv hjelpemetode)
     protected void preorder(TreeNode<E> root) {
@@ -115,7 +115,10 @@ public class BST<E> implements Tree<E> {
         preorder(root.right);
     }
 
-    // Inner class tre node
+    /**
+     * Returnerer antall noder i treet
+     * 
+     */
     public static class TreeNode<E> {
         public E element;
         public TreeNode<E> left;
@@ -132,12 +135,16 @@ public class BST<E> implements Tree<E> {
         return size;
     }
 
-    // Returnerer rooten til treet
+    /**
+     * Returnerer rooten til treet
+     */
     public TreeNode<E> getRoot() {
         return root;
     }
 
-    // returnerer en Path fra roten til en spesifisert element
+    /**
+     * returnerer en Path fra roten til en spesifisert element
+     */
     public java.util.ArrayList<TreeNode<E>> path(E e) {
         java.util.ArrayList<TreeNode<E>> list = new java.util.ArrayList<>();
         TreeNode<E> current = root; // Start fra roten
@@ -154,8 +161,11 @@ public class BST<E> implements Tree<E> {
         return list; // Returner en arrayliste med nodene
     }
 
-    // Fjern et element fra binær treet. Returnerer true hvis elementet er fjernet,
-    // eller false hvis elementet ikke er i treet
+    /**
+     * Fjern et element fra binær treet. Returnerer true hvis elementet er fjernet,
+     * eller false hvis elementet ikke er i treet
+     * 
+     */
     @Override
     public boolean delete(E e) {
         TreeNode<E> parent = null;
