@@ -29,6 +29,10 @@ public class AVLTree<E> extends BST<E> {
         return true;
     }
 
+    /**
+     * Oppdaterer høyden til treet
+     * @param node
+     */
     private void updateHeight(AVLTreeNode<E> node) {
         if (node.left == null && node.right == null)
             node.height = 0;
@@ -43,6 +47,10 @@ public class AVLTree<E> extends BST<E> {
 
     }
 
+    /**
+     * Balanserer treet ved å bruke BalanceLL, BalanceLR, BalanceRR og BalanceRL 
+     * @param e
+     */
     private void balancePath(E e) {
         java.util.ArrayList<TreeNode<E>> path = path(e);
         for (int i = path.size() - 1; i >= 0; i--) {

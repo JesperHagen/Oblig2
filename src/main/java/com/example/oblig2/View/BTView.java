@@ -19,6 +19,10 @@ public class BTView<E> extends Pane {
         setStatus("Tomt tre");
     }
 
+    /**
+     * Setter statusen til treet
+     * @param msg
+     */
     public void setStatus(String msg) {
         getChildren().add(new Text(20, 20, msg));
     }
@@ -37,7 +41,7 @@ public class BTView<E> extends Pane {
 
     /**
      * Viser et subtre, gitt rot, x-koordinat, y-koordinat og horisontal avstand
-     *
+     * Tegner en sirkle rundt hver node
      */
 
     private void displayTree(BST.TreeNode<E> root, double x, double y,
