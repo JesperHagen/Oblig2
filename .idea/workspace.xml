@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="de45dc4c-04c9-4070-bb60-69c34e44d9e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oblig2/Controller/BSTAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oblig2/Controller/BSTAnimation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oblig2/Model/AVLTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oblig2/Model/AVLTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +73,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestAVLTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.oblig2.TestAVLTree" />
+      <module name="oblig2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.oblig2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.TestAVLTree" />
       <item itemvalue="Application.App" />
       <item itemvalue="Application.HelloApplication" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.TestAVLTree" />
         <item itemvalue="Application.HelloApplication" />
       </list>
     </recent_temporary>
@@ -96,7 +113,9 @@
       <workItem from="1666178252360" duration="154000" />
       <workItem from="1666178558478" duration="1572000" />
       <workItem from="1666340046073" duration="1059000" />
-      <workItem from="1666769141013" duration="839000" />
+      <workItem from="1666769141013" duration="6245000" />
+      <workItem from="1667314882763" duration="1783000" />
+      <workItem from="1667326644758" duration="7650000" />
     </task>
     <servers />
   </component>

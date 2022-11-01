@@ -193,6 +193,9 @@ public class BSTAnimation extends Application {
 
         btLowest.setOnAction(e -> {
 
+            int key = Integer.parseInt(tfKey.getText());
+            avlTree.find(key);
+            avlView.setStatus("Node" + key + "er den laveste");
         });
 
         // Create a scene and place it in the stage

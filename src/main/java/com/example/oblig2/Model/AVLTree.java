@@ -248,10 +248,38 @@ public class AVLTree<E> extends BST<E> {
 
 
     protected static class AVLTreeNode<E> extends BST.TreeNode<E> {
-        protected int height = 0; // New data field
+        protected int height = 0; // Høyde på noden
+        protected int size = 1; // Antall children noder + seg selv
+
 
         public AVLTreeNode(E o) {
             super(o);
+        }
+    }
+
+
+    public E find (int k) {
+        return find(k, (AVLTreeNode<E>) this.root);
+    }
+    public E find(int k, AVLTreeNode<E> node) {
+       if (k < 0 || k > this.size) {
+           return null;
+       }
+       else if (node.left == null && k==1) {
+           return node.element;
+       }
+       else if (node.left == null && k == 2) {
+           return node.right.element;
+       }
+       else if (k <= ((AVLTreeNode<E>)node.left).size)
+        {
+            return find(k, (AVLTreeNode<E>) node.left);
+        }
+        else if  (k == (((AVLTreeNode<E>)node.left).size)+1) {
+            return node.element;
+        }
+        else {
+            return find(k-(((AVLTreeNode<E>) node.left).size)-1,(AVLTreeNode<E>)node.right);
         }
     }
 }
