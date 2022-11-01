@@ -90,7 +90,7 @@ public class AVLTree<E> extends BST<E> {
     }
 
     private void balanceLL(TreeNode<E> A, TreeNode<E> parentOfA) {
-        TreeNode<E> B = A.left; // A is left-heavy and B is left-heavy
+        TreeNode<E> B = A.left;
 
         if (A == root) {
             root = B;
@@ -109,8 +109,8 @@ public class AVLTree<E> extends BST<E> {
     }
 
     private void balanceLR(TreeNode<E> A, TreeNode<E> parentOfA) {
-        TreeNode<E> B = A.left; // A is left-heavy
-        TreeNode<E> C = B.right; // B is right-heavy
+        TreeNode<E> B = A.left;
+        TreeNode<E> C = B.right;
 
         if (A == root) {
             root = C;
@@ -122,8 +122,8 @@ public class AVLTree<E> extends BST<E> {
             }
         }
 
-        A.left = C.right; // Make T3 the left subtree of A
-        B.right = C.left; // Make T2 the right subtree of B
+        A.left = C.right;
+        B.right = C.left;
         C.left = B;
         C.right = A;
 
@@ -153,8 +153,8 @@ public class AVLTree<E> extends BST<E> {
     }
 
     private void balanceRL(TreeNode<E> A, TreeNode<E> parentOfA) {
-        TreeNode<E> B = A.right; // A is right-heavy
-        TreeNode<E> C = B.left; // B is left-heavy
+        TreeNode<E> B = A.right;
+        TreeNode<E> C = B.left;
 
         if (A == root) {
             root = C;
@@ -166,8 +166,8 @@ public class AVLTree<E> extends BST<E> {
             }
         }
 
-        A.right = C.left; // Make T2 the right subtree of A
-        B.left = C.right; // Make T3 the left subtree of B
+        A.right = C.left;
+        B.left = C.right;
         C.left = A;
         C.right = B;
 
@@ -178,14 +178,14 @@ public class AVLTree<E> extends BST<E> {
     }
 
     @Override
-    /** Delete an element from the binary tree.
-     * Return true if the element is deleted successfully
-     * Return false if the element is not in the tree */
+    /** Sletter et element i treet
+     * returner true hvis sletting er ok
+     * Returner false hvis elementet ikke er i treet */
     public boolean delete(E element) {
         if (root == null)
-            return false; // Element is not in the tree
+            return false; // elementet er ikke i treet
 
-        // Locate the node to be deleted and also locate its parent node
+        // lokaliser noden som skal slettes og foreldrenoden
         TreeNode<E> parent = null;
         TreeNode<E> current = root;
         while (current != null) {
@@ -196,15 +196,15 @@ public class AVLTree<E> extends BST<E> {
                 parent = current;
                 current = current.right;
             } else
-                break; // Element is in the tree pointed by current
+                break;
         }
 
         if (current == null)
-            return false; // Element is not in the tree
+            return false; // elementet er ikke i treet
 
-        // Case 1: current has no left children (See Figure 23.6)
+
         if (current.left == null) {
-            // Connect the parent with the right child of the current node
+
             if (parent == null) {
                 root = current.right;
             } else {
@@ -213,29 +213,26 @@ public class AVLTree<E> extends BST<E> {
                 else
                     parent.right = current.right;
 
-                // Balance the tree if necessary
+                // balanser treet om nødvendig
                 balancePath(parent.element);
             }
         } else {
-            // Case 2: The current node has a left child
-            // Locate the rightmost node in the left subtree of
-            // the current node and also its parent
+
             TreeNode<E> parentOfRightMost = current;
             TreeNode<E> rightMost = current.left;
 
             while (rightMost.right != null) {
                 parentOfRightMost = rightMost;
-                rightMost = rightMost.right; // Keep going to the right
+                rightMost = rightMost.right; // fortsett til høyre
             }
 
-            // Replace the element in current by the element in rightMost
+
             current.element = rightMost.element;
 
-            // Eliminate rightmost node
+
             if (parentOfRightMost.right == rightMost)
                 parentOfRightMost.right = rightMost.left;
             else
-                // Special case: parentOfRightMost is current
                 parentOfRightMost.left = rightMost.left;
 
             // Balance the tree if necessary
@@ -243,7 +240,7 @@ public class AVLTree<E> extends BST<E> {
         }
 
         size--;
-        return true; // Element inserted
+        return true; // Element insatt
     }
 
 
